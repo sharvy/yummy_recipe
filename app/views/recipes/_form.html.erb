@@ -1,0 +1,18 @@
+<%= simple_form_for(@recipe) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :cooking_time %>
+    <%= f.input :difficulty_level, collection: Constants::DIFFICULTY, prompt: 'Please select', input_html: {class: 'select-inverse select-block'} %>
+    <%= f.input :food_type_id, collection: @food_type, prompt: 'Please select', input_html: {class: 'select-inverse select-block'} %>
+    <%= f.input :food_preference_id, collection: @food_preferences, prompt: 'Please select', input_html: {class: 'select-inverse select-block'} %>
+    <%= f.input :cuisine_id, collection: @cuisine, prompt: 'Please select', input_html: {class: 'select-inverse select-block'} %>
+    <%= f.input :ingredients %>
+    <%= f.input :procedure %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
