@@ -2,11 +2,6 @@
   <div class="col-sm-8 col-sm-offset-2">
     <h1>New Recipe</h1>
     <%= render 'form' %>
-    <%= link_to 'Back', recipes_path %>
+    <%= link_to 'Cancel', recipes_path, class: 'btn btn-default' %>
   </div>
 </div>
-
-
-<script>
-    $("select").select2({dropdownCssClass: 'dropdown-inverse'});
-</script>

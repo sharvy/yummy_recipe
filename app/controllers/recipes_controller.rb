@@ -16,9 +16,6 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
-    @food_preferences = FoodPreference.all
-    @food_type = FoodType.all
-    @cuisine = Cuisine.all
   end
 
   # GET /recipes/1/edit
@@ -64,6 +61,8 @@ class RecipesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
