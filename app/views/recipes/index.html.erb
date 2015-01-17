@@ -1,40 +1,45 @@
-<div class="col-sm-12">
+<div class="col-sm-12 text-center">
   <p id="notice"><%= notice %></p>
 
-  <h1>Listing Recipes</h1>
-  <table class="table table-bordered">
-    <thead>
-    <tr>
-      <th>Title</th>
-      <th>Cooking time</th>
-      <th>Difficulty level</th>
-      <th>Food type</th>
-      <th>Food preference</th>
-      <th>Cuisine</th>
-      <th colspan="3"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @recipes.each do |recipe| %>
+  <% if @recipes.present? %>
+
+      <h1>Listing Recipes</h1>
+      <table class="table table-bordered recipe-list">
+        <thead>
         <tr>
-          <td><%= recipe.title %></td>
-          <td><%= recipe.cooking_time %></td>
-          <td><%= recipe.difficulty_level %></td>
-          <td><%= recipe.food_type.name %></td>
-          <td><%= recipe.food_preference.name %></td>
-          <td><%= recipe.cuisine.name %></td>
-          <td><%= link_to 'Show', recipe, class: 'btn btn-primary btn-small' %></td>
-          <% if user_signed_in? %>
-              <td><%= link_to 'Edit', edit_recipe_path(recipe),
-                              class: 'btn btn-success btn-small' %></td>
-              <td><%= link_to 'Delete', recipe, method: :delete,
-                              data: {confirm: 'Are you sure?'},
-                              class: 'btn btn-danger btn-small' %></td>
-          <% end %>
+          <th>Title</th>
+          <th>Cooking time</th>
+          <th>Difficulty level</th>
+          <th>Food type</th>
+          <th>Food preference</th>
+          <th>Cuisine</th>
+          <th colspan="3"></th>
         </tr>
-    <% end %>
-    </tbody>
-  </table>
+        </thead>
+        <tbody>
+        <% @recipes.each do |recipe| %>
+            <tr>
+              <td><%= recipe.title %></td>
+              <td><%= recipe.cooking_time %></td>
+              <td><%= recipe.difficulty_level %></td>
+              <td><%= recipe.food_type.name %></td>
+              <td><%= recipe.food_preference.name %></td>
+              <td><%= recipe.cuisine.name %></td>
+              <td><%= link_to 'Show', recipe, class: 'btn btn-primary btn-small' %></td>
+              <% if user_signed_in? %>
+                  <td><%= link_to 'Edit', edit_recipe_path(recipe),
+                                  class: 'btn btn-success btn-small' %></td>
+                  <td><%= link_to 'Delete', recipe, method: :delete,
+                                  data: {confirm: 'Are you sure?'},
+                                  class: 'btn btn-danger btn-small' %></td>
+              <% end %>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% else %>
+      <h3><i>No recipe found...</i></h3>
+  <% end %>
   <br>
   <%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-default' %>
 </div>

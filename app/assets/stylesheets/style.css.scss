@@ -9,3 +9,13 @@
   border-collapse: collapse !important;
   background-image: none !important;
 }
+
+.recipe-list {
+  thead {
+    tr {
+      th {
+        text-align: center;
+      }
+    }
+  }
+}

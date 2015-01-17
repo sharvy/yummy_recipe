@@ -2,7 +2,11 @@
   <div class="panel-heading">Food Preferences</div>
   <div class="panel-body">
     <% food_preferences.each do |fp| %>
-        <p><%= fp.name %></p>
+        <p>
+          <%= link_to recipes_path(recipe: { food_preference_id: fp.id }) do %>
+              <%= fp.name %>
+          <% end %>
+        </p>
     <% end %>
   </div>
 </div>
@@ -10,7 +14,11 @@
   <div class="panel-heading">Food Type</div>
   <div class="panel-body">
     <% food_types.each do |ft| %>
-        <p><%= ft.name %></p>
+        <p>
+          <%= link_to recipes_path(recipe: { food_type_id: ft.id }) do %>
+              <%= ft.name %>
+          <% end %>
+        </p>
     <% end %>
   </div>
 </div>
@@ -18,7 +26,11 @@
   <div class="panel-heading">Cuisine</div>
   <div class="panel-body">
     <% cuisines.each do |c| %>
-        <p><%= c.name %></p>
+        <p>
+          <%= link_to recipes_path(recipe: { cuisine_id: c.id }) do %>
+              <%= c.name %>
+          <% end %>
+        </p>
     <% end %>
   </div>
 </div>
